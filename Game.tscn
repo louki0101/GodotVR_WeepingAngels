@@ -1,0 +1,255 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Angel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://default_env.tres" type="Environment" id=3]
+[ext_resource path="res://materials/brick_pavement_0045_04_tiled_s.jpg" type="Texture" id=4]
+[ext_resource path="res://BushWall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fountain.tscn" type="PackedScene" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends WorldEnvironment
+
+
+func _ready():
+	environment = load(\"res://dark_env.tres\")
+"
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 30, 30, 0 )
+
+[node name="Game" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Angels" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Angel" parent="Angels" instance=ExtResource( 2 )]
+transform = Transform( 0.490202, 0, 0.871609, 0, 1, 0, -0.871609, 0, 0.490202, -11.9808, 0.0227369, -8.77989 )
+
+[node name="Angel2" parent="Angels" instance=ExtResource( 2 )]
+transform = Transform( 0.490202, 0, 0.871609, 0, 1, 0, -0.871609, 0, 0.490202, 5.87041, 0.0227369, -7.40504 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+script = SubResource( 1 )
+
+[node name="StaticLevel" type="Spatial" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="CSGBox" parent="StaticLevel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00241, 0 )
+width = 80.3635
+depth = 79.9864
+material = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="Spatial" parent="StaticLevel"]
+editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BushWall" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376818, 0.0270834, -4.13308 )
+
+[node name="BushWall2" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38061, 0.0375228, 3.9099 )
+
+[node name="BushWall5" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38061, 0.0375228, 3.9099 )
+
+[node name="BushWall6" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.38061, 0.0375228, -4.0901 )
+
+[node name="BushWall7" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 5.97413, 0.0375228, -2.06108 )
+
+[node name="BushWall22" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -5.1969, 0.0375228, 13.1556 )
+
+[node name="BushWall8" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 5.97107, 0.0375228, 1.95713 )
+
+[node name="BushWall9" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -10.1502, -0.035706, 6.05458 )
+
+[node name="BushWall34" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -15.7779, -0.035705, 10.26 )
+
+[node name="BushWall47" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -19.1166, -0.035705, 6.32137 )
+
+[node name="BushWall51" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -23.9993, -0.035705, 2.71807 )
+
+[node name="BushWall53" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -21.5626, -0.0357031, -3.39943 )
+
+[node name="BushWall36" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -15.7233, -0.035705, -4.90299 )
+
+[node name="BushWall40" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -10.0762, -0.035705, -14.406 )
+
+[node name="BushWall16" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 0.314186, -0.035706, 10.8589 )
+
+[node name="BushWall18" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -13.5355, -0.035706, 15.3877 )
+
+[node name="BushWall24" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1.56462e-007, 0, -1, 0, 1, 0, 1, 0, -1.56462e-007, 10.409, -0.035705, 4.76336 )
+
+[node name="BushWall30" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.49012e-007, 0, 1, 0, 1.49012e-007, 0, 1, 4.27774, -0.0357041, -9.16524 )
+
+[node name="BushWall10" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -10.1784, -0.00284719, 2.03747 )
+
+[node name="BushWall33" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -15.8061, -0.00284624, 6.24285 )
+
+[node name="BushWall48" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -19.1448, -0.00284624, 2.30427 )
+
+[node name="BushWall52" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -24.0275, -0.00284624, -1.29904 )
+
+[node name="BushWall54" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -23.966, -0.00284624, 9.87063 )
+
+[node name="BushWall38" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -15.7515, -0.00284624, -8.9201 )
+
+[node name="BushWall43" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -6.05912, -0.00284624, -14.4342 )
+
+[node name="BushWall14" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 4.3313, -0.00284719, 10.8307 )
+
+[node name="BushWall19" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -9.51837, -0.00284719, 15.3595 )
+
+[node name="BushWall25" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1.56462e-007, 0, -1, 0, 1, 0, 1, 0, -1.56462e-007, 10.3808, -0.00284624, 0.746254 )
+
+[node name="BushWall27" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.49012e-007, 0, 1, 0, 1.49012e-007, 0, 1, 0.260629, -0.00284528, -9.13704 )
+
+[node name="BushWall11" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -10.0999, 0.0375242, -1.94605 )
+
+[node name="BushWall35" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -15.7276, 0.0375252, 2.25933 )
+
+[node name="BushWall37" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -15.673, 0.0375252, -12.9036 )
+
+[node name="BushWall41" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, -5.56286, 0.0375247, -6.48034 )
+
+[node name="BushWall44" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, -5.56845, 0.0375247, -10.0765 )
+
+[node name="BushWall45" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, -5.56465, 0.0375252, -13.5703 )
+
+[node name="BushWall32" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -5.33522, 0.0375242, -6.63884 )
+
+[node name="BushWall17" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 8.31482, 0.0375242, 10.9092 )
+
+[node name="BushWall31" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -8.19564e-008, 0, -1, 0, 1, 0, 1, 0, -8.19564e-008, 10.4235, 0.0375252, -7.19179 )
+
+[node name="BushWall21" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -5.53485, 0.0375242, 15.438 )
+
+[node name="BushWall26" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1.56462e-007, 0, -1, 0, 1, 0, 1, 0, -1.56462e-007, 10.4593, 0.0375252, -3.23727 )
+
+[node name="BushWall28" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.49012e-007, 0, 1, 0, 1.49012e-007, 0, 1, -3.72289, 0.0375261, -9.10188 )
+
+[node name="BushWall12" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -10.0653, 0.0139742, 10.0417 )
+
+[node name="BushWall15" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -3.67291, 0.0139742, 10.9438 )
+
+[node name="BushWall20" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, -15.801, 0.0139742, 13.7 )
+
+[node name="BushWall49" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, -19.1398, 0.0139742, 9.7614 )
+
+[node name="BushWall50" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, -24.0224, 0.0139742, 6.15809 )
+
+[node name="BushWall55" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.74846e-007, 0, 1, 0, 1.74846e-007, 0, 1, -17.6169, 0.0139742, 11.2649 )
+
+[node name="BushWall56" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.74846e-007, 0, 1, 0, 1.74846e-007, 0, 1, -25.4178, 0.0139742, 11.4298 )
+
+[node name="BushWall57" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.74846e-007, 0, 1, 0, 1.74846e-007, 0, 1, -24.808, 0.0139742, 19.7263 )
+
+[node name="BushWall61" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-007, 0, -1, 0, 1, 0, 1, 0, -2.18557e-007, -27.1685, 0.0139742, 11.8002 )
+
+[node name="BushWall58" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.74846e-007, 0, 1, 0, 1.74846e-007, 0, 1, -20.9823, 0.0139742, 19.7448 )
+
+[node name="BushWall62" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-007, 0, -1, 0, 1, 0, 1, 0, -2.18557e-007, -27.187, 0.0139742, 15.6258 )
+
+[node name="BushWall63" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-007, 0, -1, 0, 1, 0, 1, 0, -2.18557e-007, -15.8253, 0.0139742, 17.6056 )
+
+[node name="BushWall59" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.74846e-007, 0, 1, 0, 1.74846e-007, 0, 1, -17.1388, 0.0139742, 19.7634 )
+
+[node name="BushWall60" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -2.18557e-007, 0, -1, 0, 1, 0, 1, 0, -2.18557e-007, -27.2057, 0.0139742, 19.4694 )
+
+[node name="BushWall39" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -17.6145, 0.0139747, -3.4209 )
+
+[node name="BushWall46" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, -17.6145, 0.0139747, 0.786371 )
+
+[node name="BushWall42" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.74846e-007, 0, 1, 0, 1.74846e-007, 0, 1, -13.5163, 0.0139742, -14.4291 )
+
+[node name="BushWall23" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( -1.56462e-007, 0, -1, 0, 1, 0, 1, 0, -1.56462e-007, 10.4939, 0.0139752, 8.75046 )
+
+[node name="BushWall29" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -1.49012e-007, 0, 1, 0, 1.49012e-007, 0, 1, 8.26483, 0.0139761, -9.20803 )
+
+[node name="BushWall3" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.53243, 0.0270834, 3.86692 )
+
+[node name="BushWall4" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64533, 0.0270834, -4.13308 )
+
+[node name="BushWall13" parent="StaticLevel/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65219, 0.0270834, -4.14919 )
+
+[node name="Player" parent="." groups=[
+"player",
+] instance=ExtResource( 6 )]
+
+[node name="Fountain" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.350415, 0, 0, 0, 0.350415, 0, 0, 0, 0.350415, -21.4598, -0.0175519, 16.5752 )
